@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script src="u2f.js"></script>
+  <script>
+   function Register()
+   {
+		let registerRequest = {
+			challenge: 'RegisterChallenge',
+			version: 'U2F_V2'
+		}
+		u2f.register('https://localhost', [registerRequest], [],
+		(response) => {
+				debugger;
+				console.log(response);
+			}
+		);
+   }
+   Register();
+  </script>
+ </body>
+</html>
