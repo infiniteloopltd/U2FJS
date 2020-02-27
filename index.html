@@ -6,10 +6,11 @@
   <meta name="Author" content="">
   <meta name="Keywords" content="">
   <meta name="Description" content="">
-  <title>Document</title>
+  <title>U2F Demo</title>
  </head>
  <body>
   <script src="u2f.js"></script>
+  <script src="u2fRegistration.js"></script>
   <script>
    function Register()
    {
@@ -18,9 +19,12 @@
 			version: 'U2F_V2'
 		}
 		u2f.register('https://localhost', [registerRequest], [],
-		(response) => {
-				debugger;
+		(response) => {				
 				console.log(response);
+				U2FRegistration.parse(response.registrationData);
+				console.log(U2FRegistration);
+				debugger;
+
 			}
 		);
    }
